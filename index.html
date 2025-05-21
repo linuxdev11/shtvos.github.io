@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Шкэбэде балди</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: #008080;
+      color: white;
+      font-family: Tahoma, sans-serif;
+      overflow: hidden;
+    }
+    #overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #000C;
+      color: white;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      text-align: center;
+      z-index: 999;
+    }
+    #taskbar {
+      position: absolute;
+      bottom: 0;
+      height: 40px;
+      background: #003366;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+    }
+    #start-button {
+      background: #0078D7;
+      color: white;
+      border: none;
+      padding: 5px 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .icon {
+      position: absolute;
+      width: 80px;
+      text-align: center;
+      top: 40px;
+      left: 20px;
+      cursor: default;
+    }
+    .icon img {
+      width: 48px;
+      height: 48px;
+    }
+    .adm-link {
+      position: absolute;
+      bottom: 60px;
+      right: 10px;
+      color: white;
+      font-size: 12px;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="overlay">Сервера отключены по тех. причинам. Просим подождать...</div>
+
+  <div class="icon">
+    <img src="img/1.png" alt="Шкэбэде балди">
+    <div>Шкэбэде балди</div>
+  </div>
+
+  <div id="taskbar">
+    <button id="start-button">Пуск</button>
+  </div>
+
+  <div class="adm-link" onclick="location.href='adm.html'">Админ-панель</div>
+
+  <script>
+    if (localStorage.getItem('serverOff') === 'true') {
+      document.getElementById('overlay').style.display = 'flex';
+    }
+  </script>
+</body>
+</html>
